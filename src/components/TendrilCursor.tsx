@@ -78,40 +78,45 @@ class Tendril {
   }
 }
 
-export default function TendrilCursor() {
+export default function TendrilCursor({ children }: { children: React.ReactNode }) {
+  const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const boundsRef = useRef<DOMRect | null>(null);
 
   useEffect(() => {
+    const container = containerRef.current;
     const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d")!;
+    if (!container || !canvas) return;
 
-    let mouseX = 0, mouseY = 0;
-    let rafId: number;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let rafId = 0;
 
     const tendrils: Tendril[] = Array.from(
       { length: settings.numTendrils },
       (_, i) => new Tendril(0.45 + 0.025 * (i / settings.numTendrils), mouseX, mouseY)
     );
 
-    const onMouseMove = (e: MouseEvent | TouchEvent) => {
-      if ("touches" in e) {
-        mouseX = e.touches[0].pageX;
-        mouseY = e.touches[0].pageY;
-      } else {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-      }
+    const updateBounds = () => {
+      const bounds = container.getBoundingClientRect();
+      boundsRef.current = bounds;
+      canvas.width = Math.max(0, Math.floor(bounds.width));
+      canvas.height = Math.max(0, Math.floor(bounds.height));
     };
 
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+    const onMouseMove = (e: MouseEvent | TouchEvent) => {
+      const bounds = boundsRef.current;
+      if (!bounds) return;
+      const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+      const clientY = "touches" in e ? e.touches[0].clientY : e.clientY;
+      mouseX = Math.max(0, Math.min(clientX - bounds.left, bounds.width));
+      mouseY = Math.max(0, Math.min(clientY - bounds.top, bounds.height));
     };
 
     const loop = () => {
-      ctx.globalCompositeOperation = "source-over";
-      ctx.fillStyle = "#181818";
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.globalCompositeOperation = "lighter";
       ctx.lineWidth = 1;
@@ -123,32 +128,25 @@ export default function TendrilCursor() {
       rafId = requestAnimationFrame(loop);
     };
 
+    window.addEventListener("resize", updateBounds);
     document.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("resize", resize);
-    resize();
+    document.addEventListener("touchmove", onMouseMove);
+
+    updateBounds();
     loop();
 
-    // Cleanup on unmount
     return () => {
+      window.removeEventListener("resize", updateBounds);
       document.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("resize", resize);
+      document.removeEventListener("touchmove", onMouseMove);
       cancelAnimationFrame(rafId);
     };
   }, []);
 
   return (
-    <canvas
-      id="tendril"
-      ref={canvasRef}
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        pointerEvents: "none",
-        zIndex: 9999,
-      }}
-    />
+    <div ref={containerRef} className="relative overflow-hidden rounded-3xl border border-black/10 bg-white/90 shadow-lg shadow-black/5 dark:border-white/10 dark:bg-white/5 dark:shadow-white/5">
+      <canvas ref={canvasRef} className="pointer-events-none absolute inset-0 z-0" />
+      <div className="relative z-10">{children}</div>
+    </div>
   );
 }
