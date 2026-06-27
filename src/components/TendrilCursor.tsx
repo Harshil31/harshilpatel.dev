@@ -112,7 +112,7 @@ export default function TendrilCursor() {
     const loop = () => {
       ctx.globalCompositeOperation = "source-over";
       ctx.fillStyle = "#181818";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.globalCompositeOperation = "lighter";
       ctx.lineWidth = 1;
 
