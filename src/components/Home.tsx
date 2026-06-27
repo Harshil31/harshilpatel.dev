@@ -1,4 +1,5 @@
 import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
 import Navbar from "@/components/Navbar";
 import TendrilCursor from "@/components/TendrilCursor";
 
@@ -11,14 +12,13 @@ export default function Home() {
         <section className="space-y-8 py-12 sm:py-16">
           <TendrilCursor>
             <div className="space-y-4 px-4 py-8 sm:px-6 sm:py-10">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-zinc-500 dark:text-zinc-400">
-                Personal Portfolio
-              </p>
               <h1 className="max-w-3xl text-4xl font-semibold leading-snug sm:text-5xl">
                 Hi, I’m Harshil.
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-zinc-600 dark:text-zinc-300">
-                I create fast, accessible, and polished portfolio sites. This simple homepage shows a hero section, work history, and an easy way to connect.
+                I'm currently a Software Engineering Intern at <b>Bell Canada</b>, working on SaaS applications and cloud infrastructure. <br /> <br />
+                I study Computer Science at <b>Toronto Metropolitan University</b>. <br /> <br />
+                In my spare time, I enjoy learning new technologies, playing sports, and online window shopping 🤪.
               </p>
             </div>
           </TendrilCursor>
@@ -54,17 +54,15 @@ export default function Home() {
 
         <Experience />
 
+        <Projects />
+
         <section id="contact" className="space-y-4 rounded-3xl border border-black/10 bg-white/90 p-8 shadow-lg shadow-black/5 dark:border-white/10 dark:bg-white/5 dark:shadow-white/5">
           <div className="space-y-3">
             <p className="text-sm uppercase tracking-[0.3em] text-zinc-500 dark:text-zinc-400">Contact</p>
             <h2 className="text-2xl font-semibold">Let’s build something together.</h2>
           </div>
           <p className="max-w-3xl text-base leading-7 text-zinc-600 dark:text-zinc-300">
-            If you have a project, collaboration, or just want to connect, email me at{' '}
-            <a href="mailto:hello@harshilpatel.dev" className="font-semibold text-black underline decoration-1 decoration-black/30 dark:text-white dark:decoration-white/30">
-              hello@harshilpatel.dev
-            </a>
-            .
+            I'm always open to new opportunities and collaborations. If you have a project in mind or just want to say hello, feel free to reach out!
           </p>
         </section>
       </main>

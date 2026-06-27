@@ -1,4 +1,3 @@
-// components/TendrilCursor.tsx
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -128,6 +127,9 @@ export default function TendrilCursor({ children }: { children: React.ReactNode 
       rafId = requestAnimationFrame(loop);
     };
 
+    const resizeObserver = new ResizeObserver(updateBounds);
+    resizeObserver.observe(container);
+
     window.addEventListener("resize", updateBounds);
     document.addEventListener("mousemove", onMouseMove);
     document.addEventListener("touchmove", onMouseMove);
@@ -136,6 +138,7 @@ export default function TendrilCursor({ children }: { children: React.ReactNode 
     loop();
 
     return () => {
+      resizeObserver.disconnect();
       window.removeEventListener("resize", updateBounds);
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("touchmove", onMouseMove);

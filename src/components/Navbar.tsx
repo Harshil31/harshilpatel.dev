@@ -7,8 +7,8 @@ export default function Navbar() {
           <a href="#work" className="transition hover:text-black dark:hover:text-white">
             Work
           </a>
-          <a href="#about" className="transition hover:text-black dark:hover:text-white">
-            About
+          <a href="#projects" className="transition hover:text-black dark:hover:text-white">
+            Projects
           </a>
           <a href="#contact" className="transition hover:text-black dark:hover:text-white">
             Contact
