@@ -18,7 +18,7 @@ export default function Home() {
               <p className="max-w-2xl text-lg leading-8 text-zinc-600 dark:text-zinc-300">
                 I'm currently a Software Engineering Intern at <b>Bell Canada</b>, working on SaaS applications and cloud infrastructure. <br /> <br />
                 I study Computer Science at <b>Toronto Metropolitan University</b>. <br /> <br />
-                In my spare time, I enjoy learning new technologies, playing sports, and online window shopping 🤪.
+                In my spare time, I enjoy learning new technologies, playing sports, and online window shopping 🤪
               </p>
             </div>
           </TendrilCursor>
