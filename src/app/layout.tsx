@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "Harshil Patel",
   description: "A simple personal portfolio built with Next.js.",
   icons: {
-    icon: "/HP-Logo.png",
+    icon: "/icon.svg",
   },
 };
 
