@@ -13,7 +13,7 @@ export default function Home() {
           <TendrilCursor>
             <div className="space-y-4 px-4 py-8 sm:px-6 sm:py-10">
               <h1 className="max-w-3xl text-4xl font-semibold leading-snug sm:text-5xl">
-                Hi, I’m Harshil.
+                Hi, I’m <span className="text-orange-400/90 drop-shadow-[0_0_8px_rgba(249,115,22,0.16)] dark:text-orange-300/90">Harshil</span>.
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-zinc-600 dark:text-zinc-300">
                 I'm currently a Software Engineering Intern at <b>Bell Canada</b>, working on SaaS applications and cloud infrastructure. <br /> <br />
