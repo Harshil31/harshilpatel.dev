@@ -23,7 +23,7 @@ export default function Home() {
             </div>
           </TendrilCursor>
 
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <a
               href="https://linkedin.com/in/harshil31"
               title="https://linkedin.com/in/harshil31"

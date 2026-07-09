@@ -71,7 +71,8 @@ class Tendril {
     const a = this.nodes[i];
     const b = this.nodes[i + 1];
     ctx.quadraticCurveTo(a.x, a.y, b.x, b.y);
-    ctx.strokeStyle = "#eb5a00c6";
+    //ctx.strokeStyle = "#002fffdc";
+    ctx.strokeStyle = "#ff5100eb";
     ctx.stroke();
     ctx.closePath();
   }
