@@ -53,10 +53,10 @@ export default function Experience() {
   return (
     <section id="work" className="space-y-6">
       <div className="space-y-3">
-        <p className="text-sm uppercase tracking-[0.3em] text-zinc-500 dark:text-zinc-400">
-          Work
+        <p className="text-sm uppercase tracking-[0.3em] text-zinc-600">
+          Experience
         </p>
-        <h2 className="text-2xl font-semibold">What I've Been Up To</h2>
+
       </div>
       <div className="space-y-4">
         {experiences.map((item) => (
@@ -66,12 +66,12 @@ export default function Experience() {
           >
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
               <div>
-                <p className="text-base font-semibold text-zinc-950 dark:text-zinc-100">{item.company}</p>
-                <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{item.role}</p>
+                <p className="text-base font-semibold text-zinc-900">{item.company}</p>
+                <p className="mt-1 text-sm text-zinc-600">{item.role}</p>
               </div>
-              <p className="text-xs uppercase tracking-[0.24em] text-zinc-500 dark:text-zinc-400">{item.date}</p>
+              <p className="text-xs uppercase tracking-[0.24em] text-zinc-600">{item.date}</p>
             </div>
-            <p className="mt-0 max-h-0 overflow-hidden text-sm leading-7 text-zinc-600 opacity-0 transition-all duration-300 ease-out group-hover:mt-4 group-hover:max-h-40 group-hover:opacity-100 group-focus-within:mt-4 group-focus-within:max-h-40 group-focus-within:opacity-100 dark:text-zinc-300">
+            <p className="mt-0 max-h-0 overflow-hidden text-sm leading-7 text-zinc-700 opacity-0 transition-all duration-300 ease-out group-hover:mt-4 group-hover:max-h-40 group-hover:opacity-100 group-focus-within:mt-4 group-focus-within:max-h-40 group-focus-within:opacity-100">
               {item.description}
             </p>
           </article>

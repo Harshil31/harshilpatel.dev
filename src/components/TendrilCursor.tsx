@@ -148,7 +148,7 @@ export default function TendrilCursor({ children }: { children: React.ReactNode 
   }, []);
 
   return (
-    <div ref={containerRef} className="relative overflow-hidden rounded-3xl border border-black/10 bg-white/90 shadow-lg shadow-black/5 dark:border-white/10 dark:bg-white/5 dark:shadow-white/5">
+    <div ref={containerRef} className="relative overflow-hidden rounded-3xl border border-black bg-white shadow-lg shadow-orange/10 dark:border-white/10 dark:bg-white/5 dark:shadow-orange/10">
       <canvas ref={canvasRef} className="pointer-events-none absolute inset-0 z-0" />
       <div className="relative z-10">{children}</div>
     </div>
